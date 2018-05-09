@@ -1,5 +1,7 @@
-$( document ).ready(function() {  
-          $('.button-collapse').sideNav();
+(function($){
+  $(function(){
+
+    $('.button-collapse').sideNav();
           $(".obterMemoriaRAM").on('click', function(){
               // console.log("#obterMemoriaRAM") 
               $('#tituloDaFuncionalidade').text("Informações sobre a Memória RAM")
@@ -65,5 +67,6 @@ $( document ).ready(function() {
               
           }) 
 
+  }); // end of document ready
+})(jQuery); // end of jQuery name space
 
-      }); 
