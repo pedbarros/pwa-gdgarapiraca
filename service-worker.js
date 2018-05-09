@@ -1,7 +1,6 @@
-var cacheName = 'gdg-arapiraca3';
+var cacheName = 'gdg-arapiraca7';
 
 var filesToCache = [
-    ".",
     "index.html",
     "css/materialize.css",
     "css/style.css", 
