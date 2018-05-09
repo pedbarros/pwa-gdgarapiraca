@@ -1,18 +1,15 @@
-var cacheName = 'gdg-arapiraca12131231';
+var cacheName = 'gdg-arapiraca102';
 
 var filesToCache = [
+    ".",
     "index.html",
     "css/materialize.css",
-    "css/style.css", 
-    "js/init.js",
+    "css/style.css",
     "js/jquery-2.1.1.min.js",
+    "js/init.js",
     "js/materialize.js",
-    "fonts/roboto/Roboto-Medium.woff2",
-    "fonts/roboto/Roboto-Medium.woff2",
-    "fonts/roboto/Roboto-Medium.woff",
-    "fonts/roboto/Roboto-Medium.woff",
     "img/gdg.png"
-]; 
+];
 
 
 self.addEventListener('install', function (e) {
@@ -31,7 +28,7 @@ self.addEventListener('activate', function (e) {
     e.waitUntil(
         caches.keys().then(function (keyList) {
             return Promise.all(keyList.map(function (key) {
-                if ( key !== cacheName ) {
+                if (key !== cacheName) {
                     console.log('[ServiceWorker] Removing old cache', key);
                     return caches.delete(key);
                 }
@@ -40,13 +37,12 @@ self.addEventListener('activate', function (e) {
     );
 });
 
-self.addEventListener('fetch', function(e) {
-  console.log('[SW] Fetch', e.request.url);
-  e.respondWith(
-      caches.match(e.request).then(function (response) {
-          return response
-
-      })
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      
+        return response || fetch(event.request);
+    
+    })
   );
-
 });

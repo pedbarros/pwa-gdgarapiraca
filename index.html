@@ -44,13 +44,13 @@
     </div>
   </div> 
 
-  <!-- LISTA DE MENU PARA FUNCIONALIDADES-->
+  <!-- LISTA DE MENU PARA FUNCIONALIDADES -->
   <ul class='dropdown-content' id='listarFuncionalidades'>
     <li class="obterMemoriaRAM"><a>Obter Memória RAM</a></li>
     <li class="obterInfArmazenamento"><a>Obter Inf. Armazenamento</a></li>
   </ul> 
 
-  <!-- LISTA DE MENU PARA FUNCIONALIDADES-->
+  <!-- MODAL PARA MOSTRAR A FUNCIONALIDADE -->
   <div id="modalFuncionalidades" class="modal">
     <div class="modal-content">
       <h4 id='tituloDaFuncionalidade'></h4>
@@ -67,7 +67,7 @@
   <script src="js/init.js"></script> 
   <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-w.js')
+        navigator.serviceWorker.register('/service-w.js')
             .then(function (retorno) {
                 console.log('Registration successful');
             })
