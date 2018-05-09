@@ -1,6 +1,6 @@
 $( document ).ready(function() {  
           $('.button-collapse').sideNav();
-          $("#obterMemoriaRAM").on('click', function(){
+          $(".obterMemoriaRAM").on('click', function(){
               // console.log("#obterMemoriaRAM") 
               $('#tituloDaFuncionalidade').text("Informações sobre a Memória RAM")
               $('#conteudoDaFuncionalidade').text("A memória RAM do seu aparelho é " + navigator.deviceMemory + " GB")
@@ -10,7 +10,7 @@ $( document ).ready(function() {
 
 
 
-          $("#obterInfArmazenamento").on('click', function(){ 
+          $(".obterInfArmazenamento").on('click', function(){ 
                   $('#tituloDaFuncionalidade').text("Informações sobre Gestos de toque")
                   $('#conteudoDaFuncionalidade').empty()
                   if ('getBattery' in navigator || ('battery' in navigator && 'Promise' in window)) {
