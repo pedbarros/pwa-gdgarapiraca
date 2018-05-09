@@ -12,9 +12,10 @@
 
 
 
-          $(".obterInfArmazenamento").on('click', function(){ 
-                  $('#tituloDaFuncionalidade').text("Informações sobre Gestos de toque")
+          $(".obterInfBateria").on('click', function(){ 
+                  $('#tituloDaFuncionalidade').text("Informações sobre a bateria")
                   $('#conteudoDaFuncionalidade').empty()
+
                   if ('getBattery' in navigator || ('battery' in navigator && 'Promise' in window)) {
                     var target = document.getElementById('target');
 
@@ -25,17 +26,8 @@
                       target.appendChild(newState);
                     }
                     
-                    function onChargingChange() {
-                      handleChange('Battery charging changed to <b>' + (this.charging ? 'charging' : 'discharging') + '</b>')
-                    }
-                    function onChargingTimeChange() {
-                      handleChange('Battery charging time changed to <b>' + this.chargingTime + ' s</b>');
-                    }
-                    function onDischargingTimeChange() {
-                      handleChange('Battery discharging time changed to <b>' + this.dischargingTime + ' s</b>');
-                    }
                     function onLevelChange() {
-                      handleChange('Battery level changed to <b>' + this.level + '</b>');
+                      handleChange('O estado da bateria modificou para <b>' + (this.level*100)+ '%</b>');
                     }
 
                     var batteryPromise;
@@ -47,17 +39,11 @@
                     }
                     
                     batteryPromise.then(function (battery) {
-                      var charging = battery.charging ? 'charging' : 'discharging';
-                      var chargingTime = battery.chargingTime + ' s';
-                      var dischargingTime = battery.dischargingTime + ' s';
                       var level = battery.level; 
 
                       $('#conteudoDaFuncionalidade')
-                          .append("<p>O estado inicial da bateria é " + level + ", com o tempo de carregamento de " + chargingTime + ", e o tempo para descarregar " + dischargingTime + ".</p>")
+                          .append("<p>O estado da bateria é <b>" + (level*100) + "%</b>")
                       
-                      battery.addEventListener('chargingchange', onChargingChange);
-                      battery.addEventListener('chargingtimechange', onChargingTimeChange);
-                      battery.addEventListener('dischargingtimechange', onDischargingTimeChange);
                       battery.addEventListener('levelchange', onLevelChange);
                     });
                   }
