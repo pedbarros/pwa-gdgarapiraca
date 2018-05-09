@@ -1,4 +1,4 @@
-var cacheName = 'gdg-arapiraca7';
+var cacheName = 'gdg-arapiraca12131231';
 
 var filesToCache = [
     "index.html",
