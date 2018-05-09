@@ -9,7 +9,7 @@ var filesToCache = [
     "js/init.js",
     "js/materialize.js",
     "img/gdg.png"
-];
+]; 
 
 
 self.addEventListener('install', function (e) {
